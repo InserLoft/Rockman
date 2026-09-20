@@ -1,0 +1,30 @@
+{
+  "name": "hidden",
+  "task_ids": [
+    "Rockman/COMP_0180",
+    "Rockman/DEBU_0139",
+    "Rockman/DEBU_0130",
+    "Rockman/ALGO_0034",
+    "Rockman/DEBU_0119",
+    "Rockman/ALGO_0004",
+    "Rockman/GRAP_0094",
+    "Rockman/GRAP_0062",
+    "Rockman/ALGO_0044",
+    "Rockman/GRAP_0104",
+    "Rockman/DEBU_0115",
+    "Rockman/ALGO_0036",
+    "Rockman/STAT_0209",
+    "Rockman/COMP_0190",
+    "Rockman/STAT_0220",
+    "Rockman/ALGO_0018",
+    "Rockman/STAT_0197",
+    "Rockman/GRAP_0058",
+    "Rockman/ALGO_0017",
+    "Rockman/DEBU_0152",
+    "Rockman/DEBU_0117",
+    "Rockman/STAT_0210"
+  ],
+  "description": "Held-out test set for final evaluation (never published)",
+  "is_public": false,
+  "version": "v0.2"
+}

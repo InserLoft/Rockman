@@ -1,0 +1,344 @@
+{
+  "benchmark_version": "v0.2",
+  "date": "2026-09-20T07:11:28.165692Z",
+  "participants": [
+    {
+      "participant_id": "H001",
+      "experience_level": "competitive",
+      "years_experience": 5,
+      "domains": [
+        "algorithms"
+      ],
+      "competitive_programming": true,
+      "competitive_rating": 2200,
+      "primary_languages": [
+        "Python",
+        "C++"
+      ],
+      "notes": ""
+    },
+    {
+      "participant_id": "H002",
+      "experience_level": "senior",
+      "years_experience": 10,
+      "domains": [
+        "systems",
+        "algorithms"
+      ],
+      "competitive_programming": false,
+      "competitive_rating": null,
+      "primary_languages": [
+        "Python",
+        "Java"
+      ],
+      "notes": ""
+    },
+    {
+      "participant_id": "H003",
+      "experience_level": "junior",
+      "years_experience": 2,
+      "domains": [
+        "web"
+      ],
+      "competitive_programming": false,
+      "competitive_rating": null,
+      "primary_languages": [
+        "Python",
+        "JavaScript"
+      ],
+      "notes": ""
+    }
+  ],
+  "attempts": [
+    {
+      "participant_id": "H001",
+      "problem_id": "Rockman/ALGO_0001",
+      "language": "python",
+      "time_minutes": 5.0,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:22.940161Z"
+    },
+    {
+      "participant_id": "H001",
+      "problem_id": "Rockman/ALGO_0002",
+      "language": "python",
+      "time_minutes": 5.4,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:23.350200Z"
+    },
+    {
+      "participant_id": "H001",
+      "problem_id": "Rockman/DEBU_0003",
+      "language": "python",
+      "time_minutes": 4.2,
+      "passed": true,
+      "compilation_errors": 0,
+      "runtime_errors": 0,
+      "wrong_answer": 0,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:23.540179Z"
+    },
+    {
+      "participant_id": "H001",
+      "problem_id": "Rockman/DEBU_0004",
+      "language": "python",
+      "time_minutes": 6.000000000000001,
+      "passed": true,
+      "compilation_errors": 0,
+      "runtime_errors": 0,
+      "wrong_answer": 0,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:23.740698Z"
+    },
+    {
+      "participant_id": "H001",
+      "problem_id": "Rockman/DEBU_0005",
+      "language": "python",
+      "time_minutes": 8.200000000000001,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:24.151123Z"
+    },
+    {
+      "participant_id": "H001",
+      "problem_id": "Rockman/DEBU_0006",
+      "language": "python",
+      "time_minutes": 6.2,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:24.539110Z"
+    },
+    {
+      "participant_id": "H002",
+      "problem_id": "Rockman/ALGO_0001",
+      "language": "python",
+      "time_minutes": 7.0,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:24.818635Z"
+    },
+    {
+      "participant_id": "H002",
+      "problem_id": "Rockman/ALGO_0002",
+      "language": "python",
+      "time_minutes": 7.5600000000000005,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:25.225992Z"
+    },
+    {
+      "participant_id": "H002",
+      "problem_id": "Rockman/DEBU_0003",
+      "language": "python",
+      "time_minutes": 5.880000000000001,
+      "passed": true,
+      "compilation_errors": 0,
+      "runtime_errors": 0,
+      "wrong_answer": 0,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:25.385182Z"
+    },
+    {
+      "participant_id": "H002",
+      "problem_id": "Rockman/DEBU_0004",
+      "language": "python",
+      "time_minutes": 8.400000000000002,
+      "passed": true,
+      "compilation_errors": 0,
+      "runtime_errors": 0,
+      "wrong_answer": 0,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:25.565618Z"
+    },
+    {
+      "participant_id": "H002",
+      "problem_id": "Rockman/DEBU_0005",
+      "language": "python",
+      "time_minutes": 11.48,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:25.951348Z"
+    },
+    {
+      "participant_id": "H002",
+      "problem_id": "Rockman/DEBU_0006",
+      "language": "python",
+      "time_minutes": 8.68,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:26.305714Z"
+    },
+    {
+      "participant_id": "H003",
+      "problem_id": "Rockman/ALGO_0001",
+      "language": "python",
+      "time_minutes": 15.0,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:26.561871Z"
+    },
+    {
+      "participant_id": "H003",
+      "problem_id": "Rockman/ALGO_0002",
+      "language": "python",
+      "time_minutes": 16.200000000000003,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:26.969094Z"
+    },
+    {
+      "participant_id": "H003",
+      "problem_id": "Rockman/DEBU_0003",
+      "language": "python",
+      "time_minutes": 12.600000000000001,
+      "passed": true,
+      "compilation_errors": 0,
+      "runtime_errors": 0,
+      "wrong_answer": 0,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:27.145093Z"
+    },
+    {
+      "participant_id": "H003",
+      "problem_id": "Rockman/DEBU_0004",
+      "language": "python",
+      "time_minutes": 18.000000000000004,
+      "passed": true,
+      "compilation_errors": 0,
+      "runtime_errors": 0,
+      "wrong_answer": 0,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:27.383899Z"
+    },
+    {
+      "participant_id": "H003",
+      "problem_id": "Rockman/DEBU_0005",
+      "language": "python",
+      "time_minutes": 24.6,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:27.798697Z"
+    },
+    {
+      "participant_id": "H003",
+      "problem_id": "Rockman/DEBU_0006",
+      "language": "python",
+      "time_minutes": 18.6,
+      "passed": false,
+      "compilation_errors": 1,
+      "runtime_errors": 0,
+      "wrong_answer": 1,
+      "time_limit_exceeded": 0,
+      "memory_limit_exceeded": 0,
+      "notes": "",
+      "timestamp": "2026-09-20T07:11:28.165610Z"
+    }
+  ],
+  "summary": {
+    "overall_pass_rate": 0.3333333333333333,
+    "by_participant": {
+      "H001": {
+        "pass_rate": 0.3333333333333333,
+        "avg_time": 5.833333333333333,
+        "problems_solved": 2
+      },
+      "H002": {
+        "pass_rate": 0.3333333333333333,
+        "avg_time": 8.166666666666666,
+        "problems_solved": 2
+      },
+      "H003": {
+        "pass_rate": 0.3333333333333333,
+        "avg_time": 17.500000000000004,
+        "problems_solved": 2
+      }
+    },
+    "by_difficulty": {},
+    "by_experience": {
+      "competitive": 0.3333333333333333,
+      "senior": 0.3333333333333333,
+      "junior": 0.3333333333333333
+    },
+    "by_domain": {
+      "algorithms": 0.3333333333333333,
+      "systems": 0.3333333333333333,
+      "web": 0.3333333333333333
+    },
+    "time_stats": {
+      "mean": 9.180000000000001,
+      "median": 7.200000000000001,
+      "stdev": 5.2134441590948315,
+      "min": 4.2,
+      "max": 18.000000000000004
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "benchmark": "Rockman",
+  "version": "v0.2",
+  "frozen_at": "2026-09-20T07:13:50.860599Z",
+  "dataset_hash": "3352bcf5270bcd7b4db3cd81266b1831c12cf5f56b852ee2362ca502f02d65b7",
+  "master_secret_hash": "bed0a2ff117ed740",
+  "split_hashes": {
+    "public": "44ec510beeedb32d",
+    "private": "d2e652185862982b",
+    "hidden": "6fcb27112afab6ac"
+  },
+  "task_count": 220,
+  "category_distribution": {
+    "Algorithms": 50,
+    "Graphs": 60,
+    "Debugging": 50,
+    "Complexity": 30,
+    "Stateful Systems": 30
+  },
+  "difficulty_distribution": {
+    "3": 100,
+    "4": 90,
+    "5": 30
+  },
+  "task_type_distribution": {
+    "generation": 110,
+    "debugging": 50,
+    "optimization": 30,
+    "stateful": 30
+  },
+  "schema_version": "0.2.0",
+  "evaluator_version": "0.2.0",
+  "files": {
+    "public": "rockman_v0.2_public.jsonl",
+    "private": "rockman_v0.2_private.jsonl",
+    "hidden": "rockman_v0.2_hidden.jsonl",
+    "canaries": "rockman_v0.2_canaries.json",
+    "task_hashes": "rockman_v0.2_task_hashes.json",
+    "versions": "rockman_versions.json",
+    "splits_dir": "rockman_v0.2_splits/"
+  },
+  "security": {
+    "encryption": "AES-256-GCM",
+    "key_derivation": "HKDF-SHA256",
+    "canary_format": "ROCKMAN_CANARY_<hash>",
+    "master_secret": "REQUIRED_FOR_EVALUATION"
+  },
+  "splits": {
+    "public": {
+      "ratio": 0.7,
+      "count": 154,
+      "hidden_tests": false
+    },
+    "private": {
+      "ratio": 0.2,
+      "count": 44,
+      "hidden_tests": true,
+      "encrypted": true
+    },
+    "hidden": {
+      "ratio": 0.1,
+      "count": 22,
+      "hidden_tests": true,
+      "encrypted": false
+    }
+  },
+  "validation": {
+    "splits_verified": true,
+    "overlaps": 0,
+    "canaries_generated": 220
+  }
+}

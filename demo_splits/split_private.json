@@ -1,0 +1,28 @@
+{
+  "name": "private",
+  "task_ids": [
+    "Rockman/ALGO_0019",
+    "Rockman/ALGO_0049",
+    "Rockman/ALGO_0014",
+    "Rockman/ALGO_0038",
+    "Rockman/ALGO_0007",
+    "Rockman/ALGO_0023",
+    "Rockman/ALGO_0028",
+    "Rockman/ALGO_0006",
+    "Rockman/GRAP_0082",
+    "Rockman/ALGO_0012",
+    "Rockman/GRAP_0073",
+    "Rockman/GRAP_0083",
+    "Rockman/ALGO_0009",
+    "Rockman/GRAP_0069",
+    "Rockman/GRAP_0081",
+    "Rockman/ALGO_0033",
+    "Rockman/ALGO_0018",
+    "Rockman/ALGO_0040",
+    "Rockman/ALGO_0042",
+    "Rockman/GRAP_0078"
+  ],
+  "description": "Private evaluation tasks with hidden tests (encrypted)",
+  "is_public": false,
+  "version": "v0.2"
+}

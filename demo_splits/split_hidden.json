@@ -1,0 +1,18 @@
+{
+  "name": "hidden",
+  "task_ids": [
+    "Rockman/GRAP_0097",
+    "Rockman/GRAP_0091",
+    "Rockman/GRAP_0054",
+    "Rockman/GRAP_0094",
+    "Rockman/GRAP_0055",
+    "Rockman/GRAP_0065",
+    "Rockman/GRAP_0068",
+    "Rockman/ALGO_0031",
+    "Rockman/GRAP_0060",
+    "Rockman/GRAP_0051"
+  ],
+  "description": "Held-out test set for final evaluation (never published)",
+  "is_public": false,
+  "version": "v0.2"
+}

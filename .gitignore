@@ -1,0 +1,87 @@
+# Rockman Benchmark - Git Ignore
+# Excludes test artifacts, private keys, and temporary files
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.env
+.env.local
+
+# Test artifacts and results
+results/
+*.csv
+*.png
+*.jsonl
+!rockman_v0.2_*.jsonl
+!rockman_v0.2_manifest.json
+!rockman_v0.2_leaderboard.json
+
+# Private keys and secrets
+*.key
+*.pem
+*.secret
+*.credential
+master_secret*
+MASTER_SECRET*
+.env.secrets
+*.api_key
+API_KEY*
+
+# Test and evaluation outputs
+phase1_*.py
+phase2_*.py
+phase3_*.py
+freeze_*.py
+test_*.py
+*_test.py
+test_*.json
+eval_*.json
+*_eval_*.json
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Coverage and profiling
+.coverage
+*.cover
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.tox/
+*.prof
+
+# Distribution
+dist/
+build/
+*.egg-info/
+*.whl
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Hugging Face specific
+.hf/
+*.hfignore
+
+# Local development
+local/
+dev/
+.experimental/

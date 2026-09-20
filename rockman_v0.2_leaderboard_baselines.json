@@ -1,0 +1,132 @@
+{
+  "benchmark_version": "v0.2",
+  "evaluation_type": "reference_baselines",
+  "evaluation_date": "2026-09-20T08:11:50.925024Z",
+  "evaluator_version": "0.2.0",
+  "protocol": {
+    "k": 1,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 0,
+    "hardware": "local-cpu"
+  },
+  "models": {
+    "random": {
+      "overall": 0.0,
+      "score": {
+        "overall": 0.0,
+        "by_difficulty": {
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0
+        },
+        "by_category": {
+          "Algorithms": 0.0,
+          "Graphs": 0.0,
+          "Debugging": 0.0,
+          "Complexity": 0.0,
+          "Stateful Systems": 0.0
+        },
+        "by_subcategory": {
+          "Dynamic Programming": 0.0,
+          "Shortest Path": 0.0,
+          "Off-by-One": 0.0,
+          "Edge Cases": 0.0,
+          "O(n log n)": 0.0,
+          "Cache/LRU": 0.0
+        },
+        "by_task_type": {
+          "generation": 0.0,
+          "debugging": 0.0,
+          "optimization": 0.0,
+          "stateful": 0.0
+        },
+        "by_language": {
+          "python": 0.0
+        },
+        "efficiency_score": 0.0,
+        "robustness_score": 0.0,
+        "total_tasks": 44,
+        "passed_tasks": 0
+      }
+    },
+    "heuristic": {
+      "overall": 0.0,
+      "score": {
+        "overall": 0.0,
+        "by_difficulty": {
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0
+        },
+        "by_category": {
+          "Algorithms": 0.0,
+          "Graphs": 0.0,
+          "Debugging": 0.0,
+          "Complexity": 0.0,
+          "Stateful Systems": 0.0
+        },
+        "by_subcategory": {
+          "Dynamic Programming": 0.0,
+          "Shortest Path": 0.0,
+          "Off-by-One": 0.0,
+          "Edge Cases": 0.0,
+          "O(n log n)": 0.0,
+          "Cache/LRU": 0.0
+        },
+        "by_task_type": {
+          "generation": 0.0,
+          "debugging": 0.0,
+          "optimization": 0.0,
+          "stateful": 0.0
+        },
+        "by_language": {
+          "python": 0.0
+        },
+        "efficiency_score": 0.0,
+        "robustness_score": 0.0,
+        "total_tasks": 44,
+        "passed_tasks": 0
+      }
+    },
+    "template": {
+      "overall": 13.636363636363635,
+      "score": {
+        "overall": 13.636363636363635,
+        "by_difficulty": {
+          "3": 27.27272727272727,
+          "4": 0.0,
+          "5": 0.0
+        },
+        "by_category": {
+          "Algorithms": 0.0,
+          "Graphs": 0.0,
+          "Debugging": 42.857142857142854,
+          "Complexity": 0.0,
+          "Stateful Systems": 0.0
+        },
+        "by_subcategory": {
+          "Dynamic Programming": 0.0,
+          "Shortest Path": 0.0,
+          "Off-by-One": 100.0,
+          "Edge Cases": 0.0,
+          "O(n log n)": 0.0,
+          "Cache/LRU": 0.0
+        },
+        "by_task_type": {
+          "generation": 0.0,
+          "debugging": 42.857142857142854,
+          "optimization": 0.0,
+          "stateful": 0.0
+        },
+        "by_language": {
+          "python": 13.636363636363635
+        },
+        "efficiency_score": 0.0,
+        "robustness_score": 0.0,
+        "total_tasks": 44,
+        "passed_tasks": 6
+      }
+    }
+  }
+}
