@@ -135,7 +135,7 @@ reporter.generate_full_report(leaderboard, detailed_results)
   "max_tokens": 4096,
   "k": 1,
   "hardware": "openrouter-cloud",
-  "date": "2024-09-20T01:48:31Z",
+  "date": "2026-09-20T01:48:31Z",
   "evaluator_version": "0.2.0",
   "benchmark_version": "v0.2"
 }
@@ -176,9 +176,6 @@ Model                    Pass@1    Solved
 Template                 13.64%     6/44
 Heuristic                 0.00%     0/44
 Random                    0.00%     0/44
-qwen3.8-27b:free          4.55%     2/44  (41 rate limited)
-Claude Sonnet 4             —       API LIMIT
-GPT-4o                        ?       ?
 ```
 
 ---
@@ -282,7 +279,7 @@ Dataset splits:
 @misc{rockman2024,
   title={Rockman: A Comprehensive Benchmark for Code Generation and Software Engineering},
   author={Inserloft},
-  year={2024},
+  year={2026},
   version={v0.2},
   url={https://github.com/InserLoft/Rockman}
 }
@@ -312,4 +309,4 @@ Dataset splits:
 
 ---
 
-**Built with ❤️ by [Inserloft](https://Inserloft.com)** — Advancing the science of code intelligence evaluation.
+**[Inserloft](https://Inserloft.com)** — Advancing the science of code intelligence evaluation.
