@@ -127,14 +127,14 @@ reporter.generate_full_report(leaderboard, detailed_results)
 
 ```json
 {
-  "model_name": "qwen/qwen3.8-27b:free",
-  "model_version": "qwen3.8-27b:free",
-  "provider": "openrouter",
+  "model_name": "user/model",
+  "model_version": "model",
+  "provider": "provider",
   "temperature": 0.0,
   "top_p": 1.0,
   "max_tokens": 4096,
   "k": 1,
-  "hardware": "openrouter-cloud",
+  "hardware": "example-cloud",
   "date": "2026-09-20T01:48:31Z",
   "evaluator_version": "0.2.0",
   "benchmark_version": "v0.2"
