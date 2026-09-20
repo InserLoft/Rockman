@@ -1,283 +1,268 @@
 # Rockman Benchmark v0.2
 
-> **A comprehensive, contamination-resistant benchmark for evaluating LLMs on code generation, debugging, optimization, and software engineering tasks.**
+> A contamination-resistant benchmark for evaluating LLMs on code generation, debugging, optimization, and software engineering tasks.
 
-[![Benchmark Version](https://img.shields.io/badge/version-v0.2-blue)](https://github.com/InserLoft/Rockman)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Hugging Face Dataset](https://img.shields.io/badge/🤗%20Hugging%20Face-Rockman-yellow)](https://huggingface.co/datasets/Inserloft/Rockman)
-[![Python](https://img.shields.io/badge/python-3.8+-blue)](https://python.org)
+Rockman is an evaluation benchmark designed to measure how reliably language models solve executable software-engineering problems.
+
+Unlike benchmarks focused only on code completion, Rockman evaluates multiple classes of programming tasks, including generation, debugging, algorithms, data structures, complexity constraints, stateful systems, and multi-step problems.
 
 ---
 
 ## 🎯 Overview
 
-Rockman is a **production-ready benchmark** designed to rigorously evaluate Large Language Models on realistic software engineering tasks. Unlike simple code generation benchmarks, Rockman covers the full spectrum of developer workflows:
+Rockman evaluates models using executable tests rather than relying on textual similarity or human judgment.
 
-| Task Type | Description | Examples |
-|-----------|-------------|----------|
-| **Generation** | Implement function from signature + docstring | "Implement Dijkstra's algorithm" |
-| **Debugging** | Fix bugs in provided code | Off-by-one, edge cases, infinite loops |
-| **Optimization** | Meet specific complexity targets | O(n log n), O(1) space |
-| **Stateful** | Classes with persistent state | LRU cache, banking ledger, event processor |
-| **Multi-step** | Parse → Build → Solve pipelines | Parse graph → build adjacency → find path |
+### Task types
 
----
-
-## 📊 Benchmark Composition (v0.2)
-
-| Split | Tasks | Hidden Tests | Purpose |
-|-------|-------|--------------|---------|
-| **Public** | 154 | ❌ | Development, debugging |
-| **Private** | 44 | ✅ (encrypted) | Official evaluation |
-| **Hidden** | 22 | ✅ (never published) | Final leaderboard integrity |
-
-| Category | Tasks | Difficulty Range |
-|----------|-------|------------------|
-| Fundamentals | 60 | 1–3 |
-| Data Structures | 50 | 2–4 |
-| Algorithms | 50 | 2–5 |
-| Graphs | 60 | 3–6 |
-| Trees | 40 | 3–5 |
-| Math | 40 | 2–5 |
-| **Debugging** | 50 | 2–4 |
-| **Complexity** | 30 | 3–5 |
-| **Software Engineering** | 40 | 3–5 |
-| **Stateful Systems** | 30 | 4–6 |
-| **Multi-step** | 30 | 4–6 |
-| **Total** | **520** | **1–7** |
-
-**Difficulty Levels:** 1=Introductory → 7=Research
+| Task Type    | Description                                  | Examples                                    |
+| ------------ | -------------------------------------------- | ------------------------------------------- |
+| Generation   | Implement functionality from a specification | Algorithms, utilities, data structures      |
+| Debugging    | Repair defective code                        | Edge cases, incorrect logic, runtime errors |
+| Optimization | Satisfy computational constraints            | Time or memory complexity                   |
+| Stateful     | Maintain persistent state across operations  | Caches, ledgers, processors                 |
+| Multi-step   | Solve a sequence of dependent operations     | Parse → Build → Solve                       |
 
 ---
 
-## 🔐 Contamination Prevention
+## 📊 Benchmark Composition
 
-Rockman implements **six layers** of contamination protection:
+Rockman v0.2 contains **220 evaluation tasks** distributed across three evaluation splits.
 
-| Layer | Mechanism |
-|-------|-----------|
-| **1. Canary Strings** | Unique `ROCKMAN_CANARY_<hash>` per task |
-| **2. Content Hashing** | SHA256 of prompt + tests for integrity |
-| **3. Split Isolation** | Public/Private/Hidden with zero overlap |
-| **4. Encrypted Hidden Tests** | AES-256-GCM, keys held by evaluator only |
-| **5. Source Attribution** | `source_type`, `source_url`, `derived_from` metadata |
-| **6. Temporal Controls** | Creation/publication dates, embargo periods |
+| Split   | Tasks | Hidden Tests | Purpose                               |
+| ------- | ----: | ------------ | ------------------------------------- |
+| Public  |   154 | No           | Development and local experimentation |
+| Private |    44 | Yes          | Official model evaluation             |
+| Hidden  |    22 | Yes          | Additional leaderboard integrity      |
 
-**Verification:** Run `rockman verify --dataset rockman_v0.2.jsonl` to audit integrity.
+**Total: 220 tasks**
+
+The **44-task private split** is the primary official evaluation set for v0.2.
+
+The hidden split is not published and is reserved for controlled evaluation.
+
+### Difficulty
+
+Rockman tasks are assigned difficulty levels from **1 to 7**:
+
+| Level | Description    |
+| ----: | -------------- |
+|     1 | Introductory   |
+|     2 | Basic          |
+|     3 | Intermediate   |
+|     4 | Advanced       |
+|     5 | Hard           |
+|     6 | Very Hard      |
+|     7 | Research-level |
+
+Difficulty is intended to describe task complexity, not model performance.
+
+---
+
+## 🔐 Contamination Resistance
+
+Rockman v0.2 incorporates multiple mechanisms intended to reduce benchmark contamination and preserve evaluation integrity.
+
+| Layer | Mechanism                                  |
+| ----- | ------------------------------------------ |
+| 1     | Canary strings                             |
+| 2     | SHA-256 task/content hashing               |
+| 3     | Public / Private / Hidden split isolation  |
+| 4     | AES-256-GCM encrypted hidden tests         |
+| 5     | Source attribution metadata                |
+| 6     | Temporal metadata and publication controls |
+
+### Canary strings
+
+Tasks may contain unique identifiers following the form:
+
+```text
+ROCKMAN_CANARY_<hash>
+```
+
+These canaries can be used to detect unexpected exposure or contamination.
+
+### Hidden tests
+
+Private and hidden evaluation relies on tests that are not exposed as part of the public benchmark interface.
+
+The hidden evaluation material is encrypted and intended to remain under evaluator control.
 
 ---
 
 ## 🚀 Quick Start
 
-### Installation
+### Clone
 
 ```bash
 git clone https://github.com/InserLoft/Rockman
 cd Rockman
+```
+
+### Install
+
+```bash
 pip install -e .
-pip install matplotlib  # for PNG reports
 ```
 
-### Run Baseline Evaluation
+Optional dependencies for report generation:
 
 ```bash
-# Phase 1: Reference baselines (always works offline)
-python phase1_evaluate_baselines.py
-
-# Phase 2: Model evaluation via OpenRouter
-python phase2_evaluate_openrouter.py
-```
-
-### Programmatic Usage
-
-```python
-from rockman import (
-    Evaluator, Problem, load_problems_from_jsonl,
-    RockmanResultsReporter, generate_benchmark_dataset
-)
-
-# Load dataset
-problems = load_problems_from_jsonl("rockman_v0.2_private.jsonl")
-
-# Evaluate model
-evaluator = Evaluator(benchmark_version="v0.2")
-completions = {p.task_id: [your_model(p.prompt)] for p in problems}
-results = evaluator.evaluate_dataset(problems, completions, k=1)
-
-# Generate reports
-reporter = RockmanResultsReporter("results")
-reporter.generate_full_report(leaderboard, detailed_results)
+pip install matplotlib
 ```
 
 ---
 
-## 📈 Evaluation Protocol
+## 🧪 Evaluation
 
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| **Temperature** | 0.0 | Deterministic generation |
-| **Top-p** | 1.0 | No nucleus sampling |
-| **Max Tokens** | 4096 | Sufficient for complex tasks |
-| **k (Pass@k)** | 1 | Single sample per task |
-| **Timeout** | 2.0s | Per-task execution limit |
-| **Memory** | 256 MB | Per-task memory limit |
-| **Sandbox** | Containerized | Docker (or local fallback) |
+Rockman evaluates model-generated completions against executable tests.
 
-### Required Metadata per Evaluation
+A typical evaluation uses:
 
-```json
-{
-  "model_name": "user/model",
-  "model_version": "model",
-  "provider": "provider",
-  "temperature": 0.0,
-  "top_p": 1.0,
-  "max_tokens": 4096,
-  "k": 1,
-  "hardware": "example-cloud",
-  "date": "2026-09-20T01:48:31Z",
-  "evaluator_version": "0.2.0",
-  "benchmark_version": "v0.2"
-}
+```text
+Temperature: 0.0
+Top-p: 1.0
+Max tokens: 4096
+Pass@k: 1
+Timeout: 2 seconds
+Memory limit: 256 MB
 ```
 
-### API Error Handling
+### Official evaluation split
 
-**Critical:** Network/API errors are **not** counted as code failures.
+The primary official v0.2 evaluation consists of:
 
-| Error Type | Recorded As | Counted as Failure |
-|------------|-------------|-------------------|
-| Code assertion failure | `FAIL` | ✅ Yes |
-| Runtime error | `FAIL` | ✅ Yes |
-| Timeout | `TIMEOUT` | ✅ Yes |
-| **API 429 (rate limit)** | `RATE_LIMITED` | ❌ No |
-| **API 402/400 (payment)** | `API_ERROR` | ❌ No |
-| **API 404/500** | `API_ERROR` | ❌ No |
+```text
+44 private tasks
+```
+
+Each task produces an executable result.
+
+Typical outcomes include:
+
+```text
+PASS
+FAIL
+TIMEOUT
+RATE_LIMITED
+API_ERROR
+```
+
+API and network failures are separated from actual code failures.
+
+| Result                   | Counted as code failure? |
+| ------------------------ | ------------------------ |
+| PASS                     | No                       |
+| Assertion / test failure | Yes                      |
+| Runtime error            | Yes                      |
+| Timeout                  | Yes                      |
+| API rate limit           | No                       |
+| API/payment error        | No                       |
+| Server/API error         | No                       |
+
+This distinction prevents external provider failures from being incorrectly interpreted as model failures.
 
 ---
 
-## 📊 Official Reports
+## 📈 Metrics
 
-Every evaluation automatically generates:
+Rockman reports model performance using executable task results.
 
-| Format | Description |
-|--------|-------------|
-| **`results/*.csv`** | Complete breakdown: overall, difficulty, category, task type, language, per-problem |
-| **`results/*.png`** | Professional charts (black bg, white primary): leaderboard, difficulty bars, category bars, task type donut |
+### Pass@1
 
-### Sample Leaderboard Output
+For the official v0.2 evaluation:
 
+```text
+Pass@1 = solved tasks / evaluated tasks
 ```
-ROCKMAN BENCHMARK v0.2
-Private Evaluation — 44 Tasks
 
-Model                    Pass@1    Solved
-------------------------------------------------
-Template                 13.64%     6/44
-Heuristic                 0.00%     0/44
-Random                    0.00%     0/44
-```
+The benchmark also supports additional statistical reporting, including:
+
+* Difficulty breakdowns
+* Category breakdowns
+* Task-type breakdowns
+* Per-task results
+* Wilson confidence intervals
+* Statistical comparisons
 
 ---
 
-## 🏗️ Architecture
+## 📊 v0.2 Baselines
 
-```
-rockman/
-├── benchmark/           # Core evaluation engine
-│   ├── schema.py        # Problem, Score, Result dataclasses
-│   ├── evaluator.py     # Unified evaluator (all task types)
-│   ├── metrics.py       # Pass@k, Wilson CI, statistical tests
-│   ├── runners/         # Language runners (Py, C++, Java, JS, TS, Rust, Go)
-│   ├── sandbox.py       # Docker sandbox + local fallback
-│   ├── encryption.py    # AES-256-GCM hidden test encryption
-│   ├── versioning.py    # Immutable version registry
-│   └── determinism.py   # Reproducibility tracking
-├── dataset/             # Dataset generation & management
-│   ├── generator.py     # Template-based task generation
-│   ├── categories.py    # 12 categories, 50+ subcategories
-│   ├── validators.py    # 13 validation checks (incl. negative testing)
-│   └── splits.py        # Public/Private/Hidden splits + canaries
-├── tasks/               # Specialized task types
-│   ├── debugging.py     # Bug injection (8 bug types)
-│   ├── complexity.py    # Performance test generation
-│   ├── stateful.py      # LRU, banking, event processor, etc.
-│   └── multi_step.py    # Parse→Build→Solve pipelines
-├── baselines/           # Reference baselines
-│   ├── calibration.py   # Difficulty calibration
-│   ├── human_baseline.py # Human evaluation framework
-│   └── reference_models.py # Random, Heuristic, Template
-├── reports/             # Report generation
-│   └── generate.py      # Markdown/HTML/JSON reports
-├── visualization/       # CSV + PNG report generation
-│   └── results_reporter.py # Black-theme professional charts
-├── cli/                 # CLI commands (generate, eval, leaderboard, publish)
-├── docs/                # Methodology, scoring, security, contamination
-│   ├── methodology.md
-│   ├── scoring.md
-│   ├── security.md
-│   └── contamination.md
-├── phase1_evaluate_baselines.py
-├── phase2_evaluate_openrouter.py
-├── freeze_v0.2.py
-├── rockman_benchmark.py   # Backward-compatible facade
+Reference baselines have been evaluated on the 44-task private split.
+
+| Baseline  | Pass@1 | Solved |
+| --------- | -----: | -----: |
+| Template  | 13.64% | 6 / 44 |
+| Heuristic |  0.00% | 0 / 44 |
+| Random    |  0.00% | 0 / 44 |
+
+These baselines are provided as reference points and are not intended to represent modern LLM performance.
+
+---
+
+## 🏗️ Repository Structure
+
+```text
+Rockman/
+├── demo_splits/
+├── rockman/
+├── rockman_v0.2_splits/
+│
+├── rockman_v0.2_public.jsonl
+├── rockman_v0.2_private.jsonl
+├── rockman_v0.2_hidden.jsonl
+│
+├── rockman_v0.2_manifest.json
+├── rockman_v0.2_task_hashes.json
+├── rockman_v0.2_canaries.json
+│
+├── rockman_v0.2_leaderboard.json
+├── rockman_v0.2_leaderboard_baselines.json
+├── human_baseline_results.json
+│
+├── rockman_benchmark.py
 ├── rockman_cli.py
-└── rockman_v0.2_manifest.json
+├── rockman_versions.json
+└── README.md
 ```
+
+The `rockman/` package contains the benchmark implementation and evaluation infrastructure.
 
 ---
 
-## 🔧 CLI Commands
+## 📦 Dataset
 
-```bash
-# Generate dataset
-rockman generate --count 500 --encrypt-hidden --output rockman_v0.2.jsonl
+Rockman is available through Hugging Face for dataset access and through GitHub for the benchmark implementation and release artifacts.
 
-# Evaluate model
-rockman evaluate --dataset rockman_v0.2_private.jsonl --completions-file model_outputs.json --k 1
-
-# Generate leaderboard
-rockman leaderboard --results-file eval_results.json
-
-# Publish dataset
-rockman publish --dataset rockman_v0.2.jsonl --public-output public.jsonl --private-output private.jsonl
-
-# Validate dataset
-rockman validate --dataset rockman_v0.2.jsonl --solutions-file refs.json
-```
-
----
-
-## 📦 Dataset Access
-
-| Platform | Link | Access |
-|----------|------|--------|
-| **Hugging Face** | [Inserloft/Rockman](https://huggingface.co/datasets/Inserloft/Rockman) | `datasets.load_dataset("Inserloft/Rockman")` |
-| **GitHub** | [InserLoft/Rockman](https://github.com/InserLoft/Rockman) | `git clone` + releases |
+**Hugging Face**
 
 ```python
 from datasets import load_dataset
-ds = load_dataset("Inserloft/Rockman", split="private")
-# Note: Private split requires authentication + master secret for hidden tests
+
+dataset = load_dataset("Inserloft/Rockman")
 ```
+
+The availability of individual splits depends on their release status and access controls.
+
+The private and hidden evaluation material is intentionally not equivalent to the public development split.
 
 ---
 
 ## 📜 License
 
-MIT License — see [LICENSE](LICENSE) for details.
+The Rockman benchmark software is released under the **MIT License**.
 
-Dataset splits:
-- **Public**: CC-BY-4.0
-- **Private/Hidden**: Restricted (evaluation only)
+See [`LICENSE`](LICENSE) for the complete license text.
+
+Dataset licensing and evaluation access may differ by split.
 
 ---
 
 ## 🏷️ Citation
 
 ```bibtex
-@misc{rockman2024,
-  title={Rockman: A Comprehensive Benchmark for Code Generation and Software Engineering},
+@misc{rockman2026,
+  title={Rockman: A Contamination-Resistant Benchmark for Code Generation and Software Engineering},
   author={Inserloft},
   year={2026},
   version={v0.2},
@@ -289,24 +274,31 @@ Dataset splits:
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Add tasks via `rockman generate` or PR new task templates
-4. Ensure all 13 validation checks pass
-5. Submit PR with validation report
+Contributions to the benchmark infrastructure and public evaluation tasks are welcome.
+
+When contributing:
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Add or modify public benchmark components.
+4. Run the available validation checks.
+5. Document changes affecting evaluation methodology.
+6. Submit a pull request.
+
+Private and hidden evaluation material must not be exposed through contributions.
 
 ---
 
-## 📞 Contact
+## 🔗 Links
 
-| Platform | Link |
-|----------|------|
-| **Website** | [Inserloft.com](https://Inserloft.com) |
-| **Benchmarks** | [Inserloft.com/benchmarks/RockMan](https://Inserloft.com/benchmarks/RockMan) |
-| **GitHub** | [InserLoft/Rockman](https://github.com/InserLoft/Rockman) |
-| **Hugging Face** | [Inserloft/Rockman](https://huggingface.co/datasets/Inserloft/Rockman) |
-| **Email** | benchmarks@inserloft.com |
+* **GitHub:** https://github.com/InserLoft/Rockman
+* **Hugging Face:** https://huggingface.co/datasets/Inserloft/Rockman
+* **Inserloft:** https://inserloft.com
 
 ---
 
-**[Inserloft](https://Inserloft.com)** — Advancing the science of code intelligence evaluation.
+## About Rockman
+
+Rockman is developed by **Inserloft** as part of its work on AI evaluation and software-engineering benchmarks.
+
+**Rockman v0.2**
